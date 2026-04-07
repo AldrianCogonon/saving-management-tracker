@@ -7,12 +7,15 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        
         <header>
+            <a href="index.html" class="brand">Saving</a>
             <nav class="hnav">
-                <a href="index.html">HOME</a>
-                <a href="admin.html">DASHBOARD</a>
-                <a href="#">CONTACT</a>
-                <a href="login.html">LOGIN</a>
+                <a href="index.html">Home</a>
+                <a href="admin.html">Dashboard</a>
+                <a href="#" class="active">Costs</a>
+                <a href="#">Contact</a>
+                <a href="login.html">Login</a>
             </nav>
 
             <div class="hamburger">
@@ -21,37 +24,65 @@
                 <span></span>
             </div>
         </header>
-        <section class="stats">
-            <div>
-                <h1>STATISTICS</h1>
+
+       <section class="cost">
+            <div class="cost-card">
+
+                <p class="cost-title">Daily costs</p>
+                <p class="cost-subtitle">Track your spending for today</p>
+
+                <div class="cost-rows">
+
+                <div class="cost-row">
+                    <div class="cost-row-header">
+                        <div class="cost-icon icon-snacks">🍪</div>
+                        <span class="cost-row-label">Snacks</span>
+                    </div>
+                    <div class="cost-inputs">
+                        <input class="cost-input" type="text" placeholder="e.g. chips, coffee…" maxlength="100">
+                        <input class="cost-input amount" type="number" min="0" placeholder="₱ 0.00" oninput="calcTotal()">
+                    </div>
+                </div>
+
+                <div class="cost-row">
+                    <div class="cost-row-header">
+                        <div class="cost-icon icon-transport">🚌</div>
+                        <span class="cost-row-label">Transportation</span>
+                    </div>
+                    <div class="cost-inputs">
+                        <input class="cost-input" type="text" placeholder="e.g. jeep, taxi…" maxlength="100">
+                        <input class="cost-input amount" type="number" min="0" placeholder="₱ 0.00" oninput="calcTotal()">
+                    </div>
+                </div>
+
+                <div class="cost-row">
+                    <div class="cost-row-header">
+                        <div class="cost-icon icon-lunch">🍱</div>
+                        <span class="cost-row-label">Lunch</span>
+                    </div>
+                    <div class="cost-inputs">
+                        <input class="cost-input" type="text" placeholder="e.g. sinangag, pork…" maxlength="100">
+                        <input class="cost-input amount" type="number" min="0" placeholder="₱ 0.00" oninput="calcTotal()">
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="totals-grid">
+                    <div class="total-card">
+                        <div class="total-card-label">Total spent</div>
+                        <div class="total-card-value" id="total-display">₱ 0.00</div>
+                    </div>
+                    <div class="total-card">
+                        <div class="total-card-label">vs. yesterday</div>
+                        <div class="total-card-value" id="vs-display">—</div>
+                    </div>
+                </div>
+
+                <button class="add-btn">+ Add another category</button>
             </div>
         </section>
-        
-        <section class="cost">
-            <div class="container-wrapper">
-                  <div class="container">
-                    <form>
-                        <div class="input-group">
-                            <label>Snacks</label><br>
-                            <input type="text" maxlength="1000" placeholder="Enter List of Snacks"> <input class="tcost" type="number" placeholder="Enter Total Costs"><br><br>
-                        
-                        </div>
-                            
-                        <div class="input-group">
-                            <label>Transportation</label><br>
-                            <input type="text" placeholder="Enter type of transportation" maxlength="1000"> <input class="tcost" type="number" placeholder="Enter Total Costs"><br><br>
-                        </div>
-
-                        <div class="input-group">
-                            <label>Lunch</label><br>
-                            <input type="text"  maxlength="1000" placeholder="Enter Lunch You Ate"> <input class="tcost" type="number" placeholder="Enter Total Costs"><br><br>
-                        </div>
-                    </form>
-                </div>
-            </div>
-          
-        </section> 
-
-        <footer> </footer>  
+        <footer>© 2026 Saving. All rights reserved.</footer>
+        <script src="costs.js"></script>
     </body>
  </html>

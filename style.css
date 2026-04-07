@@ -1,87 +1,240 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body{
-    padding: 0;
-    margin: 0;  
+     font-family: 'DM Sans', sans-serif;
+    background-color: #f4f1ec;
+    color: #1a1a2e;
 }
 
-.stats, .cost{
-    min-height: 100vh;
-}
+/*----HEADER----*/
 header{
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    border: 10px red;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    padding: 14px 32px; /*first value is for top and bottom, second value is for left and right*/
+    background-color: #16213e;
+    gap: 32px;
 }
 
-header, .hnav a{
+.brand {
+    font-family: 'DM Serif Display', serif;
+    color: #fff;
+    font-size: 20px;
     text-decoration: none;
-    color: black;
-    font-size: 24px;
-    word-spacing: 10px;
+    margin-right: auto;
 }
 
-.hnav a:hover{
-    color: red;
-}
-/*-----STATISTICS SECTION----*/
-.stats{
-    border: 10px orange;
-    padding: 120px;
-    background-color: red;
+.hnav {
+    display: flex;
+    gap: 24px;
 }
 
 
+.hnav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.hnav a:hover, .hnav a.active {
+    color: #fff;
+}
+
+/* ── STATS SECTION ── */
+.stats {
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 32px;
+}
+
+.stats h1 {
+    font-family: 'DM Serif Display', serif;
+    color: #fff;
+    font-size: 48px;
+    letter-spacing: -0.02em;
+}
 /*----COSTS SECTION----*/
 .cost{
-    background-color: rgb(146, 200, 56); 
-}
-
-.container-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-}
-.container {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    width: 400px;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #f4f1ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
 }
 
-.container form {
+.cost-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 480px;
+    animation: cardAppear 0.6s ease forwards;
+}
+
+ @keyframes cardAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.cost-title {
+    font-family: 'DM Serif Display', serif;
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 4px;
+
+
+}
+
+.cost-subtitle {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+/* ── COST ROWS ── */
+.cost-rows {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-} 
-.container label {
-    color: black;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-} 
+    gap: 12px;
+}
 
-.input-group {
+.cost-row {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 14px 16px;
+    animation: fadeUp 0.5s ease both;
+}
+
+.cost-row:nth-child(1) { animation-delay: 0.1s; }
+.cost-row:nth-child(2) { animation-delay: 0.2s; }
+.cost-row:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.cost-row-header {
     display: flex;
     align-items: center;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 10px;    
-} 
-form .tcost{
-    margin-left: 100px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.cost-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.icon-snacks     { background: rgba(239, 159, 39, 0.2); }
+.icon-transport  { background: rgba(55, 138, 221, 0.2); }
+.icon-lunch      { background: rgba(99, 153, 34, 0.2); }
+
+.cost-row-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.cost-inputs {
+    display: flex;
+    gap: 8px;
+}
+
+.cost-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.cost-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.cost-input:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cost-input.amount {
+    max-width: 110px;
+    flex: none;
+}
+
+/* ── TOTALS ── */
+.totals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.total-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.total-card-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 4px;
+}
+
+.total-card-value {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.total-card-value.positive { color: #97C459; }
+.total-card-value.negative { color: #F09595; }
+
+/* ── ADD BUTTON ── */
+.add-btn {
+    width: 100%;
+    margin-top: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    padding: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
 }
 /*----FOOTER---*/
-footer{
-    padding: 100px;
-    background-color: skyblue;
+ footer {
+    padding: 60px 32px;
+    background-color: #1a1a2e;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 13px;
 }
