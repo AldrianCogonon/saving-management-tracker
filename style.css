@@ -1,0 +1,87 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;  
+}
+
+.stats, .cost{
+    min-height: 100vh;
+}
+header{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: 10px red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header, .hnav a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    word-spacing: 10px;
+}
+
+.hnav a:hover{
+    color: red;
+}
+/*-----STATISTICS SECTION----*/
+.stats{
+    border: 10px orange;
+    padding: 120px;
+    background-color: red;
+}
+
+
+/*----COSTS SECTION----*/
+.cost{
+    background-color: rgb(146, 200, 56); 
+}
+
+.container-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+} 
+.container label {
+    color: black;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+} 
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;    
+} 
+form .tcost{
+    margin-left: 100px;
+}
+/*----FOOTER---*/
+footer{
+    padding: 100px;
+    background-color: skyblue;
+}
